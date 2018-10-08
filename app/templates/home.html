@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Home - {{ super() }}{% endblock %}
+
+{% block body %}
+{% with active = 'home' %}
+{% include "nav.html" %}
+{% endwith %}
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1 class="display-4 d-flex justify-content-center">HTTPTool</h1>
+    <hr class="my-4" />
+    <p class="lead">Documentation about HTTP and HTTP utilities</p>
+  </div>
+
+  <h2><a class="text-body" href="{{ url_for('docs.index') }}">Docs</a></h2>
+  <p class="lead">Documentation describing HTTP methods, status codes, headers and more.</p>
+</div>
+{% endblock %}

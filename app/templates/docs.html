@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Docs - {{ super() }}{% endblock %}
+
+{% block head_add %}
+<style>
+  .nestnav {
+    font-size: .875rem;
+    max-height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+  }
+  .nestnav-nav {
+    padding-left: .875rem;
+    border-left: 1px solid rgba(0, 0, 0, .1);
+  }
+  .nestnav-entry {
+    display: block;
+  }
+  .nestnav-entry a {
+    color: #99979c;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+{% with active='docs' %}
+{% include "nav.html" %}
+{% endwith %}
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-2 nestnav">
+      <ul class="nestnav-nav">
+        <li class="nestnav-entry"><a href="#docIntro">Intro</a></li>
+
+        <li class="nestnav-entry"><a href="#docRequest">Request</a></li>
+        <ul class="nestnav-nav">
+          <li class="nestnav-entry"><a href="#docRequestMethods">Methods</a></li>
+          <li class="nestnav-entry"><a href="#docRequestPath">Resource path and URI encoding</a></li>
+          <li class="nestnav-entry"><a href="#docRequestHeaders">Headers</a></li>
+          <li class="nestnav-entry"><a href="#docRequestBody">Body</a></li>
+        </ul>
+
+        <li class="nestnav-entry"><a href="#docResponse">Response</a></li>
+        <ul class="nestnav-nav">
+          <li class="nestnav-entry"><a href="#docResponseStatusLine">Status line</a></li>
+          <li class="nestnav-entry"><a href="#docResponseHeaders">Headers</a></li>
+          <li class="nestnav-entry"><a href="#docResponseBody">Body</a></li>
+        </ul>
+      </ul>
+    </nav>
+    <main class="col-10 pl-5 py-2">
+      <h1>HTTP Docs</h1>
+
+      <h2 id="docIntro">Intro</h2>
+
+      <h2 id="docRequest">Request</h2>
+      <h3 id="docRequestMethods">Methods</h3>
+      <h3 id="docRequestPath">Resource path and URI encoding</h3>
+      <h3 id="docRequestHeaders">Headers</h3>
+      <h3 id="docRequestBody">Body</h3>
+
+      <h2 id="docResponse">Response</h2>
+      <h3 id="docResponseStatusLine">Status line</h3>
+      <h3 id="docResponseHeaders">Headers</h3>
+      <h3 id="docResponseBody">Body</h3>
+    </div>
+  </div>
+</div>
+{% endblock %}
