@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://httptool.bennydictor.tk/inspector/request-schema.json",
+  "type": "object",
+  "required": [
+    "scheme",
+    "host",
+    "port",
+    "method",
+    "path",
+    "headers",
+    "body"
+  ],
+  "properties": {
+    "scheme": { "type": "string" },
+    "host": { "type": "string" },
+    "port": { "type": "integer" },
+    "method": { "type": "string" },
+    "path": { "type": "string" },
+    "headers": {
+      "type" : "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "header",
+          "value"
+        ],
+        "properties": {
+          "header": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "body": {
+      "type": "object",
+      "required": [
+        "encoding",
+        "data"
+      ],
+      "properties": {
+        "encoding": { "type": "string" },
+        "data": { "type": "string" }
+      }
+    }
+  }
+}

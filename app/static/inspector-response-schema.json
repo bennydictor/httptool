@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://httptool.bennydictor.tk/inspector/response-schema.json",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "status",
+        "status_code",
+        "status_line",
+        "headers",
+        "body"
+      ],
+      "properties": {
+        "status": { "type": "string", "enum": [ "ok" ] },
+        "status_code": { "type": "integer" },
+        "status_line": { "type": "string" },
+        "headers": {
+          "type" : "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "header",
+              "value"
+            ],
+            "properties": {
+              "header": { "type": "string" },
+              "value": { "type": "string" }
+            }
+          }
+        },
+        "body": {
+          "type": "object",
+          "required": [
+            "encoding",
+            "data"
+          ],
+          "properties": {
+            "encoding": { "type": "string" },
+            "data": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "status",
+        "errors"
+      ],
+      "properties": {
+        "status": { "type": "string", "enum": [ "error" ] },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "error"
+            ],
+            "properties": {
+              "error": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

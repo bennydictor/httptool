@@ -11,6 +11,9 @@
       <li class="nav-item">
         <a class="nav-link{% if active == 'docs' %} active{% endif %}" href="{{ url_for('docs.index') }}">Docs</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link{% if active == 'inspector' %} active{% endif %}" href="{{ url_for('inspector.index') }}">Inspector</a>
+      </li>
     </ul>
   </div>
 </nav>
